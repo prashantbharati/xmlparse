@@ -5,10 +5,11 @@ const { parseString, Builder } = require("xml2js");
 const xml = fs.readFileSync("data.xml").toString();
 parseString(xml, function (err, data) {
   // Show the XML
-  console.log(data);
+  console.log(data.people.person);
 
   // Modify the XML
   data.people.person[0].$.id = 2;
+  console.log(data.people.person[0].$.id);
 
   // Saved the XML
   const builder = new Builder();
